@@ -40,7 +40,9 @@ public class CourseController : MyBaseController
 
     public IActionResult CourseDelete(int id)
     {
+        Console.WriteLine("CourseDelete id: " + id);
         // delete course
+        
         using (var db = new _2109060207DbContext())
         {
             var course = db.Courses.Find(id);

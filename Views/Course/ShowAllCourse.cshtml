@@ -44,8 +44,8 @@
                     <td>@item.CourseName</td>
                     <td>@item.Credit</td>
                     <td class="actions">
-                        <a href="/Course/CourseEdit?id={@item.CourseId}"><i class="fa fa-pencil"></i></a>
-                        <a href="/Course/CourseDelete/{@item.CourseId}" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                        <a href="/Course/CourseEdit?id=@item.CourseId"><i class="fa fa-pencil"></i></a>
+                        <a href="/Course/CourseDelete?id=@item.CourseId" class="delete-row"><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
             }
