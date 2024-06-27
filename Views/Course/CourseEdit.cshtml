@@ -16,7 +16,8 @@
         <div class="form-group">
             <label class="col-md-3 control-label" for="inputReadOnly">课程ID</label>
             <div class="col-md-6">
-                <input type="text" value="@Model?.CourseId" name="CourseID" class="form-control" readonly="readonly"/>
+                <input type="text" value="@Model?.CourseId" name="CourseID" class="form-control"
+                       @(Model?.CourseId != null ? "readonly=\"readonly\"" : "") />
             </div>
         </div>
 

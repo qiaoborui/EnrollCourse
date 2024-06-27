@@ -15,11 +15,7 @@ public class CourseController : MyBaseController
     {
         return View();
     }
-
-    public IActionResult AddCourse()
-    {
-        return View();
-    }
+    
 
     public IActionResult CourseEdit(int id)
     {
@@ -82,16 +78,7 @@ public class CourseController : MyBaseController
         }
         return RedirectToAction("ShowAllCourse", "Course");
     }
-
-    public IActionResult CourseAdd()
-    {
-        return View();
-    }
-    public IActionResult ShowAllCourse2()
-    {
-        return View();
-    }
-
+    
     public IActionResult ShowAllCourse()
     {
         //将用户名存入viewdata,以便在视图中显示
