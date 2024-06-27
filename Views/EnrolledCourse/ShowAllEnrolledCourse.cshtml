@@ -1,0 +1,65 @@
+@using WebApplication2.Models;
+@using WebApplication2.Schemas;
+@model List<CourseUser>
+
+@{
+    Layout = "_Layout";
+}
+
+<header class="panel-heading">
+    <div class="panel-actions">
+        <a href="#" class="fa fa-caret-down"></a>
+        <a href="#" class="fa fa-times"></a>
+    </div>
+    <style>
+        .container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+    </style>
+    
+        <h2 class="panel-title">课程列表</h2>
+</header>
+
+<div class="panel-body">
+    <div class="table-responsive">
+        <table class="table mb-none">
+            <thead>
+            <tr>
+                <th>Course ID</th>
+                <th>Course Name</th>
+                <th>credit</th>
+                <th>actions</th>
+            </tr>
+            </thead>
+            <tbody>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>@item.CourseId</td>
+                    <td>@item.CourseName</td>
+                    <td>@item.Credit</td>
+                    <td class="actions">
+                        @if (item.IsSelect)
+                        {
+                        <span class="mb-xs mt-xs mr-xs btn btn-primary disabled">已选</span>
+                        }
+                        else
+                        {
+                        <a href="/EnrolledCourse/EnrollCourse?id=@item.CourseId"
+                           class="mb-xs mt-xs mr-xs btn btn-primary">选课</a>
+                        }
+                    </td>
+                </tr>
+            }
+                            
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+
+  
+      

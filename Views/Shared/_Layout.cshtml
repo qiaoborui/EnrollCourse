@@ -298,9 +298,16 @@
                             else
                             {
                                 <li class="nav-active">
-                                    <a href="@Url.Action("ShowAllCourse2", "Course")">
+                                    <a href="@Url.Action("ShowAllEnrolledCourse", "EnrolledCourse")">
                                         <i class="fa fa-align-left" aria-hidden="true"></i>
                                         <span>选课管理</span>
+                                    </a>
+                                </li>
+                                
+                                <li class="nav-active">
+                                    <a href="@Url.Action("SelectedCourse", "EnrolledCourse")">
+                                        <i class="fa fa-align-left" aria-hidden="true"></i>
+                                        <span>已选课程</span>
                                     </a>
                                 </li>
                             }

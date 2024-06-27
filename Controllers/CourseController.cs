@@ -44,6 +44,13 @@ public class CourseController : MyBaseController
             var course = db.Courses.Find(id);
             if (course != null)
             {
+                // 判断是否有人选课
+                var selectedCourse = db.Selectedcourses.FirstOrDefault(sc => sc.CourseId == id);
+                if (selectedCourse != null)
+                {
+                    Console.WriteLine("Course has been selected by student, cannot delete");
+                    return RedirectToAction("Error", "Home", new {reason="Course has been selected by student, cannot delete"});
+                }
                 db.Courses.Remove(course);
                 db.SaveChanges();
             } 
