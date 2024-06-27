@@ -23,7 +23,7 @@ public class HomeController : Controller
     [HttpPost]
     public IActionResult LoginUser(LoginUserModel loginUser)
     {
-        if (loginUser.Password == "123456")
+        if (loginUser.UserType == "admin" && loginUser.UserName == "admin" && loginUser.Password == "1")
         {
             //登录成功，将用户名存入Session
             //导入Cookie
@@ -31,6 +31,27 @@ public class HomeController : Controller
             HttpContext.Session.SetString("UserType",loginUser.UserType);
             
             return RedirectToAction("ShowAllCourse","Course");
+        }
+        else if (loginUser.UserType == "student")
+        {
+            var id  =  int.Parse(loginUser.UserName);
+            using (var db = new _2109060207DbContext())
+            {
+                var student = db.Students.Find(id);
+                if (student != null && student.InitialPassword == loginUser.Password)
+                {
+                    //登录成功，将用户名存入Session
+                    //导入Cookie
+                    HttpContext.Session.SetString("Username",loginUser.UserName);
+                    HttpContext.Session.SetString("UserType",loginUser.UserType);
+                    return RedirectToAction("ShowAllCourse","Course");
+                }
+                else
+                {
+                    ViewData["Message"] = "Invalid User Name or Password !";
+                    return View("ShowLogin");
+                }
+            }
         }
         else
         {
