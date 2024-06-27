@@ -26,7 +26,7 @@ public class CourseController : MyBaseController
         }
 
         //查询课程列表
-        using (var db = new _2109060207DbContext())
+        using (var db = new _2109060226DbContext())
         {
             var course = db.Courses.Find(id);
             //返回课程列表给视图，以便使用强类型展示
@@ -39,7 +39,7 @@ public class CourseController : MyBaseController
         Console.WriteLine("CourseDelete id: " + id);
         // delete course
         
-        using (var db = new _2109060207DbContext())
+        using (var db = new _2109060226DbContext())
         {
             var course = db.Courses.Find(id);
             if (course != null)
@@ -57,7 +57,7 @@ public class CourseController : MyBaseController
     }
     public IActionResult SaveCourse(Course course)
     {
-        using (var db = new _2109060207DbContext())
+        using (var db = new _2109060226DbContext())
         {
             var model = db.Courses.Find(course.CourseId);
        
@@ -84,7 +84,7 @@ public class CourseController : MyBaseController
         //将用户名存入viewdata,以便在视图中显示
         ViewData["Username"] = HttpContext.Session.GetString("Username");
         //查询课程列表
-        using (var db = new _2109060207DbContext())
+        using (var db = new _2109060226DbContext())
         {
             List<Course> courses = db.Courses.ToList();
             //返回课程列表给视图，以便使用强类型展示

@@ -31,6 +31,7 @@
             <tr>
                 <th>学号</th>
                 <th>姓名</th>
+                <th>班级</th>
                 <th>操作</th>
             </tr>
             </thead>
@@ -41,9 +42,10 @@
                 <tr>
                     <td>@item.StudentId</td>
                     <td>@item.StudentName</td>
+                    <td>@item.Class</td>
                     <td class="actions">
-                        <a href="/Course/CourseEdit?id=@item.StudentId"><i class="fa fa-pencil"></i></a>
-                        <a href="/Course/CourseDelete?id=@item.StudentId" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                        <a href="/Student/StudentEdit?id=@item.StudentId"><i class="fa fa-pencil"></i></a>
+                        <a href="/Student/StudentDelete?id=@item.StudentId" class="delete-row"><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
             }

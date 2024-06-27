@@ -13,7 +13,7 @@ public class StudentController: Controller
         _logger = logger;
     }
     
-    public IActionResult studentEdit(int id)
+    public IActionResult StudentEdit(int id)
     {
         string idnum = id.ToString();
         if (string.IsNullOrEmpty(idnum))
@@ -22,7 +22,7 @@ public class StudentController: Controller
         }
 
         //查询学生列表
-        using (var db = new _2109060207DbContext())
+        using (var db = new _2109060226DbContext())
         {
             var student = db.Students.Find(id);
             //返回学生列表给视图，以便使用强类型展示
@@ -35,7 +35,7 @@ public class StudentController: Controller
         Console.WriteLine("StudentDelete id: " + id);
         // delete student
         
-        using (var db = new _2109060207DbContext())
+        using (var db = new _2109060226DbContext())
         {
             var student = db.Students.Find(id);
             if (student != null)
@@ -54,30 +54,36 @@ public class StudentController: Controller
     
     public IActionResult SaveStudent(Student student)
     {
-        using (var db = new _2109060207DbContext())
+        using (var db = new _2109060226DbContext())
         {
-            
+            _logger.LogInformation("SaveStudent");
             var model = db.Students.Find(student.StudentId);
             if (model == null)
             {
                 model = new Student();
                 model.StudentId = student.StudentId;
                 model.StudentName = student.StudentName;
+                model.Class = student.Class;
                 model.InitialPassword = student.InitialPassword;
                 db.Students.Add(model);
+                _logger.LogInformation("SaveStudent Add");
             }
             else
             {
                 model.StudentName = student.StudentName;
+                model.Class = student.Class;
                 model.InitialPassword = student.InitialPassword;
+                _logger.LogInformation("SaveStudent Update");
             }
+
+            db.SaveChanges();
         }
         return RedirectToAction("ShowAllStudent", "Student");
     }
     
     public IActionResult ShowAllStudent()
     {
-        using (var db = new _2109060207DbContext())
+        using (var db = new _2109060226DbContext())
         {
             var students = db.Students.ToList();
             return View(students);

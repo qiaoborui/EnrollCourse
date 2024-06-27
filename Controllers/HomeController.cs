@@ -35,7 +35,7 @@ public class HomeController : Controller
         else if (loginUser.UserType == "student")
         {
             var id  =  int.Parse(loginUser.UserName);
-            using (var db = new _2109060207DbContext())
+            using (var db = new _2109060226DbContext())
             {
                 var student = db.Students.Find(id);
                 if (student != null && student.InitialPassword == loginUser.Password)
