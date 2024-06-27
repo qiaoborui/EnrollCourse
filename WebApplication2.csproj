@@ -19,4 +19,10 @@
       <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="8.0.2" />
     </ItemGroup>
 
+    <ItemGroup>
+      <AdditionalFiles Include="Views\Student\ShowAllCourse.cshtml" />
+      <AdditionalFiles Include="Views\Student\ShowAllCourse2.cshtml" />
+      <AdditionalFiles Include="Views\Student\StudentEdit.cshtml" />
+    </ItemGroup>
+
 </Project>

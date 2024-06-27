@@ -1,0 +1,86 @@
+namespace WebApplication2.Controllers;
+using System.Diagnostics;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
+using WebApplication2.Models;
+
+public class StudentController: Controller
+{
+    private readonly ILogger<StudentController> _logger;
+    
+    public StudentController(ILogger<StudentController> logger)
+    {
+        _logger = logger;
+    }
+    
+    public IActionResult studentEdit(int id)
+    {
+        string idnum = id.ToString();
+        if (string.IsNullOrEmpty(idnum))
+        {
+            return View();
+        }
+
+        //查询学生列表
+        using (var db = new _2109060207DbContext())
+        {
+            var student = db.Students.Find(id);
+            //返回学生列表给视图，以便使用强类型展示
+            return View(student);
+        }
+    }
+    
+    public IActionResult StudentDelete(int id)
+    {
+        Console.WriteLine("StudentDelete id: " + id);
+        // delete student
+        
+        using (var db = new _2109060207DbContext())
+        {
+            var student = db.Students.Find(id);
+            if (student != null)
+            {
+                db.Students.Remove(student);
+                db.SaveChanges();
+            } 
+            else 
+            {
+                Console.WriteLine("Student not found");
+                return RedirectToAction("ShowAllStudent", "Student");
+            }
+        }
+        return RedirectToAction("ShowAllStudent", "Student");
+    }
+    
+    public IActionResult SaveStudent(Student student)
+    {
+        using (var db = new _2109060207DbContext())
+        {
+            
+            var model = db.Students.Find(student.StudentId);
+            if (model == null)
+            {
+                model = new Student();
+                model.StudentId = student.StudentId;
+                model.StudentName = student.StudentName;
+                model.InitialPassword = student.InitialPassword;
+                db.Students.Add(model);
+            }
+            else
+            {
+                model.StudentName = student.StudentName;
+                model.InitialPassword = student.InitialPassword;
+            }
+        }
+        return RedirectToAction("ShowAllStudent", "Student");
+    }
+    
+    public IActionResult ShowAllStudent()
+    {
+        using (var db = new _2109060207DbContext())
+        {
+            var students = db.Students.ToList();
+            return View(students);
+        }
+    }
+}

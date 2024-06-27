@@ -1,5 +1,5 @@
 @using WebApplication2.Models;
-@model List<Course>
+@model List<Student>
 
 @{
     Layout = "_Layout";
@@ -19,8 +19,8 @@
     </style>
 
     <div class="container">
-        <h2 class="panel-title">课程列表</h2>
-        <a href="/Course/CourseEdit" class="mb-xs mt-xs mr-xs btn btn-primary">增加课程</a>
+        <h2 class="panel-title">学生列表</h2>
+        <a href="/Student/StudentEdit" class="mb-xs mt-xs mr-xs btn btn-primary">增加学生</a>
     </div>
 </header>
 
@@ -29,10 +29,9 @@
         <table class="table mb-none">
             <thead>
             <tr>
-                <th>Course ID</th>
-                <th>Course Name</th>
-                <th>credit</th>
-                <th>actions</th>
+                <th>学号</th>
+                <th>姓名</th>
+                <th>操作</th>
             </tr>
             </thead>
             <tbody>
@@ -40,12 +39,11 @@
             @foreach (var item in Model)
             {
                 <tr>
-                    <td>@item.CourseId</td>
-                    <td>@item.CourseName</td>
-                    <td>@item.Credit</td>
+                    <td>@item.StudentId</td>
+                    <td>@item.StudentName</td>
                     <td class="actions">
-                        <a href="/Course/CourseEdit?id=@item.CourseId"><i class="fa fa-pencil"></i></a>
-                        <a href="/Course/CourseDelete?id=@item.CourseId" class="delete-row"><i class="fa fa-trash-o"></i></a>
+                        <a href="/Course/CourseEdit?id=@item.StudentId"><i class="fa fa-pencil"></i></a>
+                        <a href="/Course/CourseDelete?id=@item.StudentId" class="delete-row"><i class="fa fa-trash-o"></i></a>
                     </td>
                 </tr>
             }
