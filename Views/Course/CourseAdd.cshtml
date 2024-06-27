@@ -1,0 +1,73 @@
+@using WebApplication2.Models;
+@model Course
+@{
+    Layout = "_Layout";
+}
+
+<header class="panel-heading">
+    <div class="panel-actions">
+        
+    </div>
+    <h2 class="panel-title">课程信息增加</h2>
+</header>
+
+<div class="panel-body">
+    <form class="form-horizontal form-bordered" method="get" action="@Url.Action("SaveCourse","Course")">
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="inputReadOnly">课程ID</label>
+            <div class="col-md-6">
+                <input type="text" value="@Model?.CourseId" name="CourseID" class="form-control"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="inputDefault">课程名称</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="CourseName" value="@Model?.CourseName"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label" for="inputDefault">课程学分</label>
+            <div class="col-md-6">
+                <input type="text" class="form-control" name="Credit" value="@Model?.Credit"/>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-sm-2">
+                        <button type ="submit" class="mb-xs mt-xs mr-xs btn btn-primary">保存</button>
+                    </div>
+                    <div class="visible-xs mb-md"></div>
+                    <div class="col-sm-3">
+                        <button type ="button" onclick="location.href='/Course/ShowAllCourse'" class="mb-xs mt-xs mr-xs btn btn-default">返回</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </form>
+    </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
