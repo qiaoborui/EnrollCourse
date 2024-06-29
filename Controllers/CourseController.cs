@@ -86,6 +86,29 @@ public class CourseController : MyBaseController
         return RedirectToAction("ShowAllCourse", "Course");
     }
     
+    public IActionResult CourseAdd()
+    {
+        return View();
+    }
+    
+    public IActionResult AddCourse(Course course)
+    {
+        using (var db = new _2109060226DbContext())
+        {
+            var model = db.Courses.Find(course.CourseId);
+            if (model != null)
+            {
+                return RedirectToAction("Error", "Home", new {reason="Course ID already exists"});
+            }
+            model = new Course();
+            model.CourseId = course.CourseId;
+            model.CourseName = course.CourseName;
+            model.Credit = course.Credit;
+            db.Courses.Add(model);
+            db.SaveChanges();
+        }
+        return RedirectToAction("ShowAllCourse", "Course");
+    }
     public IActionResult ShowAllCourse()
     {
         //将用户名存入viewdata,以便在视图中显示

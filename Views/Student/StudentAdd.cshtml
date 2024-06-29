@@ -11,12 +11,12 @@
 </header>
 
 <div class="panel-body">
-    <form class="form-horizontal form-bordered" method="get" action="@Url.Action("SaveStudent","Student")">
+    <form class="form-horizontal form-bordered" method="get" action="@Url.Action("AddStudent","Student")">
         <div class="form-group">
             <label class="col-md-3 control-label" for="inputReadOnly">学号</label>
             <div class="col-md-6">
                 <input type="text" value="@Model?.StudentId" name="StudentId" class="form-control"
-                       @(Model?.StudentId != null ? "readonly=\"readonly\"" : "") required="required" />
+                       @(Model?.StudentId != null ? "readonly=\"readonly\"" : "") required="required"/>
             </div>
         </div>
 

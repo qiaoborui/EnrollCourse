@@ -32,6 +32,11 @@ public class StudentController: Controller
         }
     }
     
+    public IActionResult StudentAdd()
+    {
+        return View();
+    }
+    
     public IActionResult StudentDelete(int id)
     {
         Console.WriteLine("StudentDelete id: " + id);
@@ -78,6 +83,26 @@ public class StudentController: Controller
                 _logger.LogInformation("SaveStudent Update");
             }
 
+            db.SaveChanges();
+        }
+        return RedirectToAction("ShowAllStudent", "Student");
+    }
+    
+    public IActionResult AddStudent(Student student)
+    {
+        using(var db = new _2109060226DbContext())
+        {
+            var model = db.Students.Find(student.StudentId);
+            if (model != null)
+            {
+                return RedirectToAction("Error", "Home", new {reason="Student ID already exists"});
+            }
+            model = new Student();
+            model.StudentId = student.StudentId;
+            model.StudentName = student.StudentName;
+            model.Class = student.Class;
+            model.InitialPassword = student.InitialPassword;
+            db.Students.Add(model);
             db.SaveChanges();
         }
         return RedirectToAction("ShowAllStudent", "Student");
