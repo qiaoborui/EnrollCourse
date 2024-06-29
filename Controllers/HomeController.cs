@@ -1,9 +1,10 @@
 using System.Diagnostics;
+using EnrollCourse.Models;
+using EnrollCourse.Schemas;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication2.Models;
-using WebApplication2.Schemas;
-namespace WebApplication2.Controllers;
+
+namespace EnrollCourse.Controllers;
 
 public class HomeController : Controller
 {

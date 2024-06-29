@@ -1,8 +1,10 @@
-namespace WebApplication2.Controllers;
+using EnrollCourse.Models;
+
+namespace EnrollCourse.Controllers;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication2.Models;
+using EnrollCourse.Models;
 
 public class StudentController: Controller
 {

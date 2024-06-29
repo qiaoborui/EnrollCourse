@@ -1,7 +1,7 @@
+using EnrollCourse.Models;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication2.Models;
 
-namespace WebApplication2.Controllers;
+namespace EnrollCourse.Controllers;
 
 public class CourseController : MyBaseController
 {

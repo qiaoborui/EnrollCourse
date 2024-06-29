@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace WebApplication2.Controllers;
+namespace EnrollCourse.Controllers;
 
 public class MyBaseController : Controller
 {

@@ -1,9 +1,12 @@
-namespace WebApplication2.Controllers;
+using EnrollCourse.Models;
+using EnrollCourse.Schemas;
+
+namespace EnrollCourse.Controllers;
 using System.Diagnostics;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using WebApplication2.Models;
-using WebApplication2.Schemas;
+using EnrollCourse.Models;
+using EnrollCourse.Schemas;
 
 public class EnrolledCourseController: Controller
 {

@@ -1,4 +1,4 @@
-namespace WebApplication2.Models;
+namespace EnrollCourse.Models;
 
 public class ErrorViewModel
 {

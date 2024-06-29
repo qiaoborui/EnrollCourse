@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc.Authorization;
-using WebApplication2.Filter;
+using EnrollCourse.Filter;
 
 var builder = WebApplication.CreateBuilder(args);
 

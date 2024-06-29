@@ -1,4 +1,4 @@
-namespace WebApplication2.Schemas;
+namespace EnrollCourse.Schemas;
 
 public class CourseUser
 {

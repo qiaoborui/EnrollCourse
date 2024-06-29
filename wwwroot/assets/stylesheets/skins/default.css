@@ -1,7 +1,7 @@
 /* Base */
 a,
 .btn-link {
-	color: #7c62a8ed;
+	color: rgba(214, 19, 64, 0.93);
 }
 
 a:hover,
@@ -86,11 +86,11 @@ a:active,
 }
 /* Sign Screens - Wrappers */
 .body-sign .panel-sign .panel-title-sign .title {
-	background-color: #7c62a8ed;
+	background-color: rgba(211, 14, 52, 0.93);
 }
 
 .body-sign .panel-sign .panel-body {
-	border-top-color:#7c62a8ed;
+	border-top-color: rgba(255, 2, 128, 0.93);
 }
 /* Lock Screen */
 .body-locked .current-user .user-image {
@@ -132,8 +132,8 @@ body .btn-primary.dropdown-toggle {
 body .btn-primary {
 	color: #ffffff;
 	text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
-	background-color: #7c62a8ed;
-	border-color: #7c62a8ed;
+	background-color: rgba(227, 22, 84, 0.93);
+	border-color: rgba(223, 14, 94, 0.93);
 }
 
 body .btn-primary:hover {
